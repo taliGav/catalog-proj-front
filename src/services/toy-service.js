@@ -39,9 +39,7 @@ async function remove(id) {
 }
 
 async function save(toy) {
-  return toy._id
-    ? await httpService.put(`${ENDPOINT}/${toy._id}`, toy)
-    : await httpService.post(ENDPOINT, toy)
+  return toy._id ? await httpService.put(`${ENDPOINT}/${toy._id}`, toy) : await httpService.post(ENDPOINT, toy)
   // return toy._id ? storageService.put(KEY, toy) : storageService.post(KEY, toy)
 }
 
@@ -52,7 +50,7 @@ function getEmptyToy() {
     labels: [],
     createdAt: new Date(),
     inStock: true,
-    reviews: [],
+    // reviews: [],
   })
 }
 
@@ -63,11 +61,7 @@ function getLabels() {
 function _createToys() {
   let toys = utilService.loadFromStorage(KEY)
   if (!toys || !toys.length) {
-    toys = [
-      _createToy('Doll', 150, ['On wheels', 'Doll']),
-      _createToy('Truck', 80, ['Outdoor', 'Baby']),
-      _createToy('Cards', 150, ['Puzzle', 'Art']),
-    ]
+    toys = [_createToy('Doll', 150, ['On wheels', 'Doll']), _createToy('Truck', 80, ['Outdoor', 'Baby']), _createToy('Cards', 150, ['Puzzle', 'Art'])]
     utilService.saveToStorage(KEY, toys)
     // 'On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor'
   }
@@ -82,10 +76,10 @@ function _createToy(name, price, labels, reviews) {
     labels,
     inStock: true,
     createdAt: new Date(),
-    reviews: [
-      { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-      { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-      { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-    ],
+    // reviews: [
+    //   { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
+    //   { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
+    //   { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
+    // ],
   }
 }

@@ -12,7 +12,7 @@ const store = createStore({
   modules: {
     toyStore,
     userStore,
-    reviewStore,
+    // reviewStore,
   },
 })
 
