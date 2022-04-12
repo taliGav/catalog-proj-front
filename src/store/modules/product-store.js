@@ -1,35 +1,35 @@
-import { toyService } from '@/services/toy-service.js'
+import { productService } from '@/services/product-service.js'
 
 export default {
   state: {
-    toys: [],
+    products: [],
     filterBy: { name: '', inStock: '', labels: [], sortBy: '' },
-    labels: toyService.getLabels(),
+    labels: productService.getLabels(),
   },
   getters: {
-    toys({ toys }) {
-      return toys
+    products({ products }) {
+      return products
     },
-    toysToShow({ toys, filterBy }) {
-      const copyToys = JSON.parse(JSON.stringify(toys))
-      return copyToys
+    productsToShow({ products, filterBy }) {
+      const copyProducts = JSON.parse(JSON.stringify(products))
+      return copyProducts
     },
     labels({ labels }) {
       return labels
     },
   },
   mutations: {
-    setToys(state, { toys }) {
-      state.toys = toys
+    setProducts(state, { products }) {
+      state.products = products
     },
-    saveToy(state, { toy }) {
-      const idx = state.toys.findIndex((t) => t._id === toy._id)
-      if (idx !== -1) state.toys.splice(idx, 1, toy)
-      else state.toys.push(toy)
+    saveProduct(state, { product }) {
+      const idx = state.products.findIndex((t) => t._id === product._id)
+      if (idx !== -1) state.products.splice(idx, 1, product)
+      else state.products.push(product)
     },
-    removeToy(state, { toyId }) {
-      const idx = state.toys.findIndex((t) => t._id === toyId)
-      state.toys.splice(idx, 1)
+    removeProduct(state, { productId }) {
+      const idx = state.products.findIndex((t) => t._id === productId)
+      state.products.splice(idx, 1)
     },
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
@@ -40,18 +40,18 @@ export default {
   },
   actions: {
     loadProducts({ commit, state }) {
-      toyService.query(state.filterBy).then((toys) => {
-        commit({ type: 'setToys', toys })
+      productService.query(state.filterBy).then((products) => {
+        commit({ type: 'setProducts', products })
       })
     },
-    saveToy({ commit }, { toy }) {
-      toyService.save(toy).then((savedToy) => {
-        commit({ type: 'saveToy', toy: savedToy })
+    saveProduct({ commit }, { product }) {
+      productService.save(product).then((savedProduct) => {
+        commit({ type: 'saveProduct', product: savedProduct })
       })
     },
-    removeToy({ commit }, { toyId }) {
-      toyService.remove(toyId).then(() => {
-        commit({ type: 'removeToy', toyId })
+    removeProduct({ commit }, { productId }) {
+      productService.remove(productId).then(() => {
+        commit({ type: 'removeProduct', productId })
       })
     },
     setFilter({ dispatch, commit }, { filterBy }) {
