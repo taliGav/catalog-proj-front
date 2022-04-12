@@ -15,7 +15,7 @@ export const toyService = {
   remove,
   save,
   getEmptyToy,
-  getlabels,
+  getLabels,
 }
 
 const gToys = _createToys()
@@ -56,7 +56,7 @@ function getEmptyToy() {
   })
 }
 
-function getlabels() {
+function getLabels() {
   return labels
 }
 

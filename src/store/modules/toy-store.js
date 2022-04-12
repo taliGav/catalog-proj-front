@@ -4,7 +4,7 @@ export default {
   state: {
     toys: [],
     filterBy: { name: '', inStock: '', labels: [], sortBy: '' },
-    labels: toyService.getlabels(),
+    labels: toyService.getLabels(),
   },
   getters: {
     toys({ toys }) {
