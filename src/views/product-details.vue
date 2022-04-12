@@ -81,7 +81,7 @@ import toyPreview from '../components/toy-preview.vue'
 
 export default {
   components: { toyPreview, CustomLabel },
-  name: 'toy-detail',
+  name: 'product-details',
   data() {
     return {
       toy: null,
