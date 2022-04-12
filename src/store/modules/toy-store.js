@@ -39,7 +39,7 @@ export default {
     },
   },
   actions: {
-    loadToys({ commit, state }) {
+    loadProducts({ commit, state }) {
       toyService.query(state.filterBy).then((toys) => {
         commit({ type: 'setToys', toys })
       })
@@ -56,7 +56,7 @@ export default {
     },
     setFilter({ dispatch, commit }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
-      dispatch({ type: 'loadToys' })
+      dispatch({ type: 'loadProducts' })
     },
   },
 }

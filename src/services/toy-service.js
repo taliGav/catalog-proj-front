@@ -3,7 +3,7 @@ import { utilService } from './util-service'
 import { httpService } from './http-service'
 // import { storageService } from './async-storage-service'
 
-const KEY = 'toys_db'
+const KEY = 'store_db'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
 const ENDPOINT = 'toy'
 // const BASE_URL =

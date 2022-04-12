@@ -1,5 +1,5 @@
 <template>
-  <section class="toy-app">
+  <section class="catalog-app">
     <toy-filter @setFilter="setFilter" />
     <toy-list :toys="toys" />
   </section>
@@ -9,9 +9,9 @@
 import toyList from '../components/toy-list.vue'
 import toyFilter from '../components/toy-filter.vue'
 export default {
-  name: 'toy-app',
+  name: 'catalog-app',
   created() {
-    this.$store.dispatch({ type: 'loadToys' })
+    this.$store.dispatch({ type: 'loadProducts' })
   },
   computed: {
     toys() {
