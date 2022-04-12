@@ -1,7 +1,9 @@
 <template>
   <section class="catalog-app page-layout">
-    <toy-filter @setFilter="setFilter" />
-    <toy-list :toys="toys" />
+    <section class="modal-prodacts">
+      <toy-filter @setFilter="setFilter" />
+      <toy-list :toys="toys" />
+    </section>
   </section>
 </template>
 
