@@ -32,16 +32,16 @@ async function getById(id) {
   // return storageService.getById(KEY, id)
 }
 
-async function remove(id) {
-  return await httpService.delete(`${ENDPOINT}/${id}`)
-  // return axios.delete(BASE_URL + id).then((res) => res.data)
-  // return storageService.remove(KEY, id)
-}
+// async function remove(id) {
+//   return await httpService.delete(`${ENDPOINT}/${id}`)
+// return axios.delete(BASE_URL + id).then((res) => res.data)
+// return storageService.remove(KEY, id)
+// }
 
-async function save(product) {
-  return product._id ? await httpService.put(`${ENDPOINT}/${product._id}`, product) : await httpService.post(ENDPOINT, product)
-  // return product._id ? storageService.put(KEY, product) : storageService.post(KEY, product)
-}
+// async function save(product) {
+//   return product._id ? await httpService.put(`${ENDPOINT}/${product._id}`, product) : await httpService.post(ENDPOINT, product)
+// return product._id ? storageService.put(KEY, product) : storageService.post(KEY, product)
+// }
 
 function getEmptyProduct() {
   return Promise.resolve({
