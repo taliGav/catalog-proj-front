@@ -1,12 +1,13 @@
 <template>
-  <ul class="product-list clean-list grid">
-    <product-preview v-for="store.product in stors" :key="store.product._id" :store.product="store.product">
-      <li @click="$router.push(`/product/${product._id}`)" class="product-preview flex flex-col">
-        <!-- <div class="flex items-center justify-between">
-          <h3 class="">{{ product.name }}</h3>
-          <p class="">${{ product.price }}</p>
-        </div> -->
-        <div class="labels flex flex-wrap items-center">
+  <button @click="$router.push('/product/edit')" class="btn btn-secondary">add a new product</button>
+  <ul class="product-list py-1 clean-list grid gap-2">
+    <product-preview v-for="product in products" :key="product._id" :product="product">
+      <li @click="$router.push(`/product/${product._id}`)" class="product-preview p-2 flex flex-col gap-1">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="uppercase">{{ product.name }}</h3>
+          <p class="clr-teal fw-bold">${{ product.price }}</p>
+        </div>
+        <div class="labels flex flex-wrap items-center gap-1">
           <custom-label v-for="label in product.labels" :key="label" :label="label" />
         </div>
       </li>
