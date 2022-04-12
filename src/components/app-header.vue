@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="logo">
-      <h1>Products Catalog</h1>
+      <h1>Products Catalog B.</h1>
     </div>
     <nav class="nav">
       <router-link class="link" to="/">Home</router-link>
