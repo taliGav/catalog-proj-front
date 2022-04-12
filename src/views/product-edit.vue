@@ -1,58 +1,52 @@
 <template>
-  <section v-if="toyToEdit" class="toy-edit py-2">
+  <section v-if="productToEdit" class="product-edit py-2">
     <h1 class="py-2">{{ pageTitle }}</h1>
-    <form @submit.prevent="saveToy" class="form">
+    <form @submit.prevent="saveProduct" class="form">
       <div class="form-control">
         <label for="name" class="form-label">Name</label>
-        <input id="name" type="text" class="form-input" v-model="toyToEdit.name" />
+        <input id="name" type="text" class="form-input" v-model="productToEdit.name" />
       </div>
       <div class="form-control">
         <label for="price" class="form-label">Price</label>
-        <input id="price" type="text" class="form-input" v-model.number="toyToEdit.price" />
+        <input id="price" type="text" class="form-input" v-model.number="productToEdit.price" />
       </div>
       <div class="form-control flex flex-col">
         <label for="labels" class="form-label">Labels</label>
 
-        <el-select
-          multiple
-          v-model="toyToEdit.labels"
-          collapse-tags-tooltip
-          id="labels"
-          size="large"
-        >
+        <el-select multiple v-model="productToEdit.labels" collapse-tags-tooltip id="labels" size="large">
           <el-option v-for="label in labels" :key="label" :value="label" :label="label" />
         </el-select>
       </div>
       <div class="form-control flex flex-col">
         <label for="stock" class="form-label">In Stock</label>
-        <input id="stock" type="checkbox" v-model="toyToEdit.inStock" />
+        <input id="stock" type="checkbox" v-model="productToEdit.inStock" />
       </div>
       <div class="btn-group">
         <button type="submit" class="btn btn-success">save</button>
-        <button @click="$router.push('/toy')" class="btn btn-danger-text">go back</button>
+        <button @click="$router.push('/product')" class="btn btn-danger-text">go back</button>
       </div>
     </form>
   </section>
 </template>
 
 <script>
-import { toyService } from '../services/toy-service'
+import { productService } from '../services/product-service'
 export default {
-  name: 'toy-edit',
+  name: 'product-edit',
   data() {
     return {
-      toyToEdit: null,
-      pageTitle: 'Add Toy',
+      productToEdit: null,
+      pageTitle: 'Add Product',
     }
   },
   created() {
     const { id } = this.$route.params
     if (id) {
-      toyService.getById(id).then((toy) => (this.toyToEdit = toy))
-      this.pageTitle = 'Edit Toy'
+      productService.getById(id).then((product) => (this.productToEdit = product))
+      this.pageTitle = 'Edit Product'
     } else {
-      toyService.getEmptyToy().then((toy) => (this.toyToEdit = toy))
-      this.pageTitle = 'Add Toy'
+      productService.getEmptyProduct().then((product) => (this.productToEdit = product))
+      this.pageTitle = 'Add Product'
     }
   },
   computed: {
@@ -61,9 +55,9 @@ export default {
     },
   },
   methods: {
-    saveToy() {
-      this.$store.dispatch({ type: 'saveToy', toy: this.toyToEdit }).then(() => {
-        this.$router.push('/toy')
+    saveProduct() {
+      this.$store.dispatch({ type: 'saveProduct', product: this.productToEdit }).then(() => {
+        this.$router.push('/product')
       })
     },
   },

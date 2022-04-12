@@ -8,9 +8,9 @@
 import customLabel from './custom-label.vue'
 
 export default {
-  name: 'toy-preview',
+  name: 'product-preview',
   props: {
-    toy: Object,
+    product: Object,
   },
   components: {
     customLabel,
