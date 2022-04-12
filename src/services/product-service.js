@@ -5,20 +5,20 @@ import { httpService } from './http-service'
 
 const KEY = 'store_db'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
-const ENDPOINT = 'toy'
+const ENDPOINT = 'product'
 // const BASE_URL =
-//   process.env.NODE_ENV !== 'development' ? '/api/toy' : '//localhost:3030/api/toy/'
+//   process.env.NODE_ENV !== 'development' ? '/api/product' : '//localhost:3030/api/product/'
 
-export const toyService = {
+export const productService = {
   query,
   getById,
-  remove,
-  save,
-  getEmptyToy,
+  // remove,
+  // save,
+  // getEmptyProduct,
   getLabels,
 }
 
-const gToys = _createToys()
+const gProducts = _createProducts()
 
 async function query(filterBy = {}) {
   return await httpService.get(ENDPOINT, filterBy)
@@ -38,12 +38,12 @@ async function remove(id) {
   // return storageService.remove(KEY, id)
 }
 
-async function save(toy) {
-  return toy._id ? await httpService.put(`${ENDPOINT}/${toy._id}`, toy) : await httpService.post(ENDPOINT, toy)
-  // return toy._id ? storageService.put(KEY, toy) : storageService.post(KEY, toy)
+async function save(product) {
+  return product._id ? await httpService.put(`${ENDPOINT}/${product._id}`, product) : await httpService.post(ENDPOINT, product)
+  // return product._id ? storageService.put(KEY, product) : storageService.post(KEY, product)
 }
 
-function getEmptyToy() {
+function getEmptyProduct() {
   return Promise.resolve({
     name: '',
     price: 0,
@@ -58,17 +58,17 @@ function getLabels() {
   return labels
 }
 
-function _createToys() {
-  let toys = utilService.loadFromStorage(KEY)
-  if (!toys || !toys.length) {
-    toys = [_createToy('Doll', 150, ['On wheels', 'Doll']), _createToy('Truck', 80, ['Outdoor', 'Baby']), _createToy('Cards', 150, ['Puzzle', 'Art'])]
-    utilService.saveToStorage(KEY, toys)
+function _createProducts() {
+  let products = utilService.loadFromStorage(KEY)
+  if (!products || !products.length) {
+    products = [_createProduct('Doll', 150, ['On wheels', 'Doll']), _createProduct('Truck', 80, ['Outdoor', 'Baby']), _createProduct('Cards', 150, ['Puzzle', 'Art'])]
+    utilService.saveToStorage(KEY, products)
     // 'On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor'
   }
-  return toys
+  return products
 }
 
-function _createToy(name, price, labels, reviews) {
+function _createProduct(name, price, labels, reviews) {
   return {
     _id: utilService.makeId(),
     name,
