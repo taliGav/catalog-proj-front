@@ -75,7 +75,7 @@
 
 <script>
 import { toyService } from '../services/toy-service'
-import { reviewService } from '../services/review-service'
+// import { reviewService } from '../services/review-service'
 import CustomLabel from '../components/custom-label.vue'
 import toyPreview from '../components/toy-preview.vue'
 

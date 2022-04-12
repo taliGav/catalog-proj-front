@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
-import toyStore from './modules/toy-store'
-import userStore from './modules/user-store'
-import reviewStore from './modules/review-store'
+import productStore from './modules/product-store'
+// import userStore from './modules/user-store'
+// import reviewStore from './modules/review-store'
 
 const store = createStore({
   strict: true,
@@ -10,9 +10,7 @@ const store = createStore({
   mutations: {},
   actions: {},
   modules: {
-    toyStore,
-    userStore,
-    // reviewStore,
+    productStore,
   },
 })
 
