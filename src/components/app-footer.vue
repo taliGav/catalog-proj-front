@@ -1,5 +1,5 @@
 <template>
-  <footer class="main-footer text-center">
+  <footer class="app-footer">
     <p>&copy; CaJan22</p>
   </footer>
 </template>
