@@ -1,5 +1,5 @@
-export const focusDirective = {
-  mounted(el) {
-    el.focus()
-  },
-}
+// export const focusDirective = {
+//   mounted(el) {
+//     el.focus()
+//   },
+// }
