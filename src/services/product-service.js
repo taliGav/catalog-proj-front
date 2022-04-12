@@ -5,7 +5,7 @@ import { httpService } from './http-service'
 
 const KEY = 'store_db'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
-const ENDPOINT = 'product'
+const ENDPOINT = 'store'
 // const BASE_URL =
 //   process.env.NODE_ENV !== 'development' ? '/api/product' : '//localhost:3030/api/product/'
 
