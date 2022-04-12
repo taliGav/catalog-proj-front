@@ -1,19 +1,26 @@
-// SETUP
-@import 'setup/mixins';
-@import 'setup/functions';
-@import 'setup/variables';
+/* SETUP  */
 
-// BASE
-@import 'base/fonts';
-@import 'base/util';
+@import "./setup/typography";
+@import "./setup/variables";
+@import "./setup/mixins";
+@import "./setup/modal";
 
-// VIEWS
-@import 'views/app';
-@import 'views/home';
-@import 'views/login';
-@import 'views/toy-details';
+/* BASICS */
 
-// COMPONENTS
-@import 'components/app-footer';
-@import 'components/toy-filter';
-@import 'components/toy-list';
+@import "./basic/base";
+@import "./basic/layout";
+@import "./basic/helpers";
+
+/* COMPONENTS */
+
+@import "./components/main-header";
+@import "./components/main-footer";
+@import "./components/product-list";
+@import "./components/product-preview";
+
+/* PAGES */
+
+@import "./view/home-page";
+@import "./view/product-app";
+@import "./view/product-details";
+@import "./view/product-edit";
